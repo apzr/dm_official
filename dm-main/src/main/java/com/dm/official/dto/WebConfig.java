@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Configuration;
 
 import com.dm.official.filter.MyFilter;
 
-@Configuration  
-public class WebConfig {  
-    @Bean  
-    public FilterRegistrationBean filterRegistrationBean(MyFilter myFilter){  
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();  
-        filterRegistrationBean.setFilter(myFilter);  
-        filterRegistrationBean.setEnabled(true);  
-        filterRegistrationBean.addUrlPatterns("/i/*");  
-        return filterRegistrationBean;  
-    }     
-}  
+@Configuration
+public class WebConfig {
+	@Bean
+	public FilterRegistrationBean filterRegistrationBean(MyFilter myFilter) {
+		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+		filterRegistrationBean.setFilter(myFilter);
+		filterRegistrationBean.setEnabled(true);
+		filterRegistrationBean.addUrlPatterns("/i/*");
+		return filterRegistrationBean;
+	}
+}
