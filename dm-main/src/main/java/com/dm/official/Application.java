@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 public class Application {
 
 	public static void main(String[] args) {
-		//启动入口
+		//启动入口:run as java application
 		SpringApplication.run(Application.class, args);
 	}
 
