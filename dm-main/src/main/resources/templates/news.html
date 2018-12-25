@@ -114,80 +114,36 @@
 			</div>
 		
 			<section class="main">
-
-				<div class="ind-2">
+				<div class="ind-5">
 					<div class="wrap pt-100">
 						<div class="ind-tit f-28 cf">
 							<p>
-								<span class="bk ellipsis">新闻公告</span>
+								<span class="bk ellipsis">代表案件</span>
 							</p>
 						</div>
 						<div class="or-spacer">
 						    <div class="mask"></div>
 						</div>
-						<div class="ind-3-list">
+						<div class="ind-7-list f-18" >
 							<ul class="cf pd4">
-								<li>
-									<div class="content-box">
-										<div class="img ratio-img" data-ratio="0.63" style="height: 233px;">
-											<figure class="effect-ming">
-												<img src="../../images/news01.jpg" alt="商标申请" class="ratio-img">
-													<figcaption>
-														<h2 class="title15">新 闻 <span>标 题1</span></h2>
-														<p>
-															新闻概要新闻概要新闻概要新闻
-															<br>
-															概要新新闻概要新闻概要新闻概要新闻概要闻概
-															<br>
-															概要新闻概要新闻概要新闻概要新闻概要
-														</p>
-														<a href="JavaScript:Void(0)"">View more</a>
-													</figcaption>			
-											</figure>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="content-box">
-										<div class="img ratio-img" data-ratio="0.63" style="height: 233px;">
-											<figure class="effect-ming">
-												<img src="../../images/news02.jpg" alt="专利代理" class="ratio-img">
-													<figcaption>
-														<h2 class="title15">新 闻 <span>标 题2</span></h2>
-														<p>
-															新闻概要新闻概要新闻概要新闻
-															<br>
-															概要新新闻概要新闻概
-														</p>
-														<a href="JavaScript:Void(0)"">View more</a>
-													</figcaption>			
-											</figure>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="content-box">
-										<div class="img ratio-img" data-ratio="0.63" style="height: 233px;">
-											<figure class="effect-ming">
-												<img src="../../images/news03.jpg" alt="版权注册" class="ratio-img">
-													<figcaption  class="img-bg auto-bg">
-														<h2 class="title15">新 闻 <span>标 题3</span></h2>
-														<p>
-															新闻概要新闻概要新闻概要新闻
-														</p>
-														<a href="JavaScript:Void(0)"">View more</a>
-													</figcaption>			
-											</figure>
-										</div>
-									</div>
+								<li th:each="news:${newsList}">
+									<a href="#" th:href="@{detail?(id=${news.id})}" class="bk">
+										<dl class="cf">
+											<dt class="fr" th:text="${#dates.format(news.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
+											<dd class="oh ellipsis" th:text="${news.title}">
+												代表案件
+											</dd>
+										</dl>
+									</a>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				
 			</section>
+			
 			<hr class="split"/>
+			
 			<footer class="footer f-14">
 				<div class="wrap">
 					<div class="footer-nav cf">
@@ -198,48 +154,48 @@
 						</dl>
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">业务范围</a>
+								<a href="http://127.0.0.1/index">业务范围</a>
 							</dt>
 							<dd>
-								<a href="http://127.0.0.1/main/index">商标代理</a>
+								<a href="http://127.0.0.1/index">商标代理</a>
 							</dd>
 							<dd>
-								<a href="http://127.0.0.1/main/index">专利代理</a>
+								<a href="http://127.0.0.1/index">专利代理</a>
 							</dd>
 							<dd>
-								<a href="http://127.0.0.1/main/index">版权代理</a>
+								<a href="http://127.0.0.1/index">版权代理</a>
 							</dd>
 						</dl>
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">新闻公告</a>
+								<a href="http://127.0.0.1/index">新闻公告</a>
 							</dt>
 						</dl>
 
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">企业动态</a>
+								<a href="http://127.0.0.1/index">企业动态</a>
 							</dt>
 						</dl>
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">代表案件</a>
+								<a href="http://127.0.0.1/index">代表案件</a>
 							</dt>
 						</dl>
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">关于我们</a>
+								<a href="http://127.0.0.1/index">关于我们</a>
 							</dt>
 							<dd>
-								<a href="http://127.0.0.1/main/index">企业简介</a>
+								<a href="http://127.0.0.1/index">企业简介</a>
 							</dd>
 							<dd>
-								<a href="http://127.0.0.1/main/index">企业荣誉</a>
+								<a href="http://127.0.0.1/index">企业荣誉</a>
 							</dd>
 						</dl>
 						<dl class="last">
 							<dt>
-								<a href="http://127.0.0.1/main/index">联系我们</a>
+								<a href="http://127.0.0.1/index">联系我们</a>
 							</dt>
 						</dl>
 					</div>

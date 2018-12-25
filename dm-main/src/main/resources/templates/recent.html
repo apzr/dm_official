@@ -127,45 +127,14 @@
 						</div>
 						<div class="f-18" >
 							<ul class="cf pd4">
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
+								<li th:each="recent:${recentList}">
+									<a href="#" th:href="@{detail?(id=${recent.id})}" class="bk">
 										<dl class="cf">
-											<dt class="fr">2018-06-29</dt>
-											<dd class="oh ellipsis">
-												在西方学者V字地方小吃V字形
+											
+											<dt class="fr" th:text="${#dates.format(recent.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
+											<dd class="oh ellipsis" th:text="${recent.title}">
+												企业动态
 											</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-06-29</dt>
-											<dd class="oh ellipsis">日晚发生的发短信发热哇</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-06-29</dt>
-											<dd class="oh ellipsis">啊舒服撒大V嘎的绕过去而去</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-04-27</dt>
-											<dd class="oh ellipsis">阿尔法的观点是法国ver问题</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-04-26</dt>
-											<dd class="oh ellipsis">做的饭v阿尔阿尔分v过去让瓦岁的父亲我如果去而过</dd>
 										</dl>
 									</a>
 								</li>
@@ -186,48 +155,48 @@
 						</dl>
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">业务范围</a>
+								<a href="http://127.0.0.1/index">业务范围</a>
 							</dt>
 							<dd>
-								<a href="http://127.0.0.1/main/index">商标代理</a>
+								<a href="http://127.0.0.1/index">商标代理</a>
 							</dd>
 							<dd>
-								<a href="http://127.0.0.1/main/index">专利代理</a>
+								<a href="http://127.0.0.1/index">专利代理</a>
 							</dd>
 							<dd>
-								<a href="http://127.0.0.1/main/index">版权代理</a>
+								<a href="http://127.0.0.1/index">版权代理</a>
 							</dd>
 						</dl>
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">新闻公告</a>
+								<a href="http://127.0.0.1/index">新闻公告</a>
 							</dt>
 						</dl>
 
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">企业动态</a>
+								<a href="http://127.0.0.1/index">企业动态</a>
 							</dt>
 						</dl>
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">代表案件</a>
+								<a href="http://127.0.0.1/index">代表案件</a>
 							</dt>
 						</dl>
 						<dl>
 							<dt>
-								<a href="http://127.0.0.1/main/index">关于我们</a>
+								<a href="http://127.0.0.1/index">关于我们</a>
 							</dt>
 							<dd>
-								<a href="http://127.0.0.1/main/index">企业简介</a>
+								<a href="http://127.0.0.1/index">企业简介</a>
 							</dd>
 							<dd>
-								<a href="http://127.0.0.1/main/index">企业荣誉</a>
+								<a href="http://127.0.0.1/index">企业荣誉</a>
 							</dd>
 						</dl>
 						<dl class="last">
 							<dt>
-								<a href="http://127.0.0.1/main/index">联系我们</a>
+								<a href="http://127.0.0.1/index">联系我们</a>
 							</dt>
 						</dl>
 					</div>

@@ -3,7 +3,7 @@ package com.dm.official.util;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.dm.official.dto.StaticParam;
+import com.dm.official.dto.STATIC;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -90,9 +90,9 @@ public class JsonUtils {
 		//paramExpression = "plugin1_in1|name1,plugin1_in2|name2,plugin1_in3|name3###plugin1_out1,plugin1_out2,plugin1_out3";
 		Map<String, String> paramList = new LinkedHashMap<String, String>();
 		
-		String[] input = paramExpression.split(StaticParam.PARAM_IN_OUT)[0].split(StaticParam.PARAM_SPILT);
+		String[] input = paramExpression.split(STATIC.PARAM_IN_OUT)[0].split(STATIC.PARAM_SPILT);
 		for (int i = 0; i < input.length; i++) {
-			String[] paramInfo = input[i].split(StaticParam.PARAM_MAPPING);
+			String[] paramInfo = input[i].split(STATIC.PARAM_MAPPING);
 			paramList.put(paramInfo[0], paramInfo[1]);
 		}
 		
@@ -100,7 +100,7 @@ public class JsonUtils {
 	}
 	
 	public static String[] getOutParamList(String paramExpression) {
-		return paramExpression.split(StaticParam.PARAM_IN_OUT)[1].split(StaticParam.PARAM_SPILT);
+		return paramExpression.split(STATIC.PARAM_IN_OUT)[1].split(STATIC.PARAM_SPILT);
 	}
 
 	

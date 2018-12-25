@@ -20,7 +20,7 @@
   <!-- 文件保存日志的相关配置 --> 
   <appender name="ERROR-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
      <!-- 保存日志文件的路径 -->
-    <file>/home/ct/logs/db.log</file>
+    <file>/home/dm/logs/db.log</file>
     <!-- 日志格式 -->
     <encoder>
         <pattern>%d{yyyy-MM-dd HH:mm:ss} [%class:%line] - %m%n</pattern>

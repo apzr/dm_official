@@ -241,50 +241,27 @@
 
 				<div class="ind-2">
 					<div class="wrap">
+						
 						<div class="ind-tit f-28 cf">
 							<p>
 								<span class="bk ellipsis">新闻公告</span>
 							</p>
 						</div>
+						
 						<div class="or-spacer">
 						    <div class="mask"></div>
 						</div>
+						
 						<div class="ind-3-list">
 							<ul class="cf pd4">
-								<li>
+								<li th:each="news:${newsList}">
 									<div class="content-box">
 										<div class="img ratio-img" data-ratio="0.63" style="height: 233px;">
 											<figure class="effect-ming">
-												<img src="../../images/news01.png" alt="商标申请" class="ratio-img">
+												<img src="../../images/news01.png" alt="新闻" class="ratio-img">
 													<figcaption>
-														<h2 class="title13">关于改变补发<br/><span>变更/转让/续展证明申请方式</span><br/>的公告</h2>
-														<a href="detail?id=3" target="_blank">详情</a>
-													</figcaption>			
-											</figure>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="content-box">
-										<div class="img ratio-img" data-ratio="0.63" style="height: 233px;">
-											<figure class="effect-ming">
-												<img src="../../images/news02.png" alt="专利代理" class="ratio-img">
-													<figcaption>
-														<h2 class="title13">工商总局办公厅关于印发<br/><span>《商标注册便利化改革三年攻坚计划（2018-2020年）》</span><br/>的通知</h2>
-														<a href="detail?id=2" target="_blank">详情</a>
-													</figcaption>			
-											</figure>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="content-box">
-										<div class="img ratio-img" data-ratio="0.63" style="height: 233px;">
-											<figure class="effect-ming">
-												<img src="../../images/news03.png" alt="版权注册" class="ratio-img">
-													<figcaption>
-														<h2 class="title13">工商总局关于<br/><span>深入实施商标品牌战略 推进中国品牌建设</span><br/>的意见</h2>
-														<a href="detail?id=1" target="_blank">详情</a>
+														<h2 class="title13" th:text="${news.title}">标题</h2>
+														<a href="#" th:href="@{detail?(id=${news.id})}" target="_blank">详情</a>
 													</figcaption>			
 											</figure>
 										</div>
@@ -292,53 +269,10 @@
 								</li>
 							</ul>
 						</div>
+						
 					</div>
 				</div>
-				<div class="ind-3" style="display:none;">
-					<div class="wrap">
-						<div class="ind-tit f-28 cf">
-							<p>
-								<span class="bk ellipsis">经典案件</span>
-							</p>
-						</div>
-						<div class="or-spacer">
-						    <div class="mask"></div>
-						</div>
-						<div class="ind-4-list mag-t-15">
-							<ul class="cf pd4">
-								<li>
-									<div class="content-box">
-										<p class="ellipsis-4 f-b f-20">这是1篇示例文章</p>
-										<div class="line"></div>
-										<p class="f-18">示例文章内容，示例文章内容示例文章内容，示例文章内容。示例文章内容示例文章内容示例文章内容。</p>
-									</div>
-								</li>
-								<li>
-									<div class="content-box">
-										<p class="ellipsis-4 f-b f-20">这是2篇示例文章</p>
-										<div class="line"></div>
-										<p class="f-18">示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容。</p>
-									</div>
-								</li>
-								<li>
-									<div class="content-box">
-										<p class="ellipsis-4 f-b f-20">这是3篇示例文章</p>
-										<div class="line"></div>
-										<p class="f-18">示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容。</p>
-									</div>
-								</li>
-								<li>
-									<div class="content-box">
-										<p class="ellipsis-4 f-b f-20">这是4篇示例文章</p>
-										<div class="line"></div>
-										<p class="f-18">容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容容示例文章内容示例文章内容示例文章内容示例文章内容示例文章内容。</p>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
+				
 				<div class="ind-4" >
 					<div class="wrap">
 						<div class="ind-tit f-28 cf">
@@ -442,45 +376,14 @@
 						</div>
 						<div class="f-18" >
 							<ul class="cf pd4">
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
+								<li th:each="recent:${recentList}">
+									<a href="#" th:href="@{detail?(id=${recent.id})}" class="bk">
 										<dl class="cf">
-											<dt class="fr">2018-08-19</dt>
-											<dd class="oh ellipsis">
-												企业动态01
+											
+											<dt class="fr" th:text="${#dates.format(recent.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
+											<dd class="oh ellipsis" th:text="${recent.title}">
+												企业动态
 											</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-08-09</dt>
-											<dd class="oh ellipsis">企业动态02</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-07-11</dt>
-											<dd class="oh ellipsis">企业动态03</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-05-12</dt>
-											<dd class="oh ellipsis">企业动态04</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-04-22</dt>
-											<dd class="oh ellipsis">企业动态05</dd>
 										</dl>
 									</a>
 								</li>
@@ -501,43 +404,13 @@
 						</div>
 						<div class="ind-7-list f-18" >
 							<ul class="cf pd4">
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
+								<li th:each="classic:${classicList}">
+									<a href="#" th:href="@{detail?(id=${classic.id})}" class="bk">
 										<dl class="cf">
-											<dt class="fr">2018-06-29</dt>
-											<dd class="oh ellipsis">代表案件01</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-06-29</dt>
-											<dd class="oh ellipsis">代表案件02</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-06-29</dt>
-											<dd class="oh ellipsis">代表案件03</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-04-27</dt>
-											<dd class="oh ellipsis">代表案件04</dd>
-										</dl>
-									</a>
-								</li>
-								<li>
-									<a href="http://127.0.0.1/main/index" class="bk">
-										<dl class="cf">
-											<dt class="fr">2018-04-26</dt>
-											<dd class="oh ellipsis">代表案件05</dd>
+											<dt class="fr" th:text="${#dates.format(classic.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
+											<dd class="oh ellipsis" th:text="${classic.title}">
+												代表案件
+											</dd>
 										</dl>
 									</a>
 								</li>
@@ -545,7 +418,6 @@
 						</div>
 					</div>
 				</div>
-				
 				
 				<div class="ind-6">
 					<div class="wrap">
@@ -660,7 +532,7 @@
 				<div class="footer-cr f-12 c666">
 					<div class="wrap">
 						<br/>
-						Copyright © 2018-2019 钉铆知识产权代理服务有限公司 
+						Copyright © 2018-2019 新乡市开发区钉铆知识产权代理服务有限公司 
 						<br />
 						<br />
 						<a href="https://szcert.ebs.org.cn/5a204ab8-076c-44ad-97e0-775de4e5a278" target="_blank" style="color: #666">

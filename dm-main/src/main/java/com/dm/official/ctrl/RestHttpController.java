@@ -1,5 +1,9 @@
 package com.dm.official.ctrl;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +16,8 @@ public class RestHttpController {
 	ApplicationContext application;
 	
 	@RequestMapping(path="/")
-	public String restGet() {
-		
-		return "please visit \"/swagger-ui.html\" to discover more.";
+	public void redirect0(HttpServletResponse response) throws IOException {
+		response.sendRedirect("/index");
 	}
 
 }

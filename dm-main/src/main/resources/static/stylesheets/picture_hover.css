@@ -59,7 +59,7 @@
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
 .img figure figcaption > a {
-	z-index: 1000;
+	z-index: 99;
 	text-indent: 200%;
 	white-space: nowrap;
 	font-size: 0;
@@ -1089,7 +1089,7 @@ figure.effect-ming figcaption::before {
 }
 
 figure.effect-ming h2 {
-	margin: 15% 0 10px 4.8%;
+	margin: 15% 5% 10px 5%;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 }

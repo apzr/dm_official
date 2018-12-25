@@ -15,10 +15,10 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.dm.official.ctrl.MsgInnerController;
+import com.dm.official.ctrl.MainController;
 
 public class FileUtils {
-	private static final Logger LOGGER = LoggerFactory.getLogger(MsgInnerController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
 
 	/**
 	 * 获取目录下所有.ok的文件
