@@ -1,4 +1,4 @@
-package com.dm.official.ctrl;
+package com.dm.official.controller;
 
 import java.io.IOException;
 
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RestHttpController {
-	
-	@Autowired  
+
+	@Autowired
 	ApplicationContext application;
-	
-	@RequestMapping(path="/")
+
+	@RequestMapping(path = "/")
 	public void redirect0(HttpServletResponse response) throws IOException {
 		response.sendRedirect("/index");
 	}

@@ -261,7 +261,7 @@
 												<img src="../../images/news01.png" alt="新闻" class="ratio-img">
 													<figcaption>
 														<h2 class="title13" th:text="${news.title}">标题</h2>
-														<a href="#" th:href="@{detail?(id=${news.id})}" target="_blank">详情</a>
+														<a href="#" th:href="@{/news/detail?(id=${news.id})}" target="_blank">详情</a>
 													</figcaption>			
 											</figure>
 										</div>
@@ -377,7 +377,7 @@
 						<div class="f-18" >
 							<ul class="cf pd4">
 								<li th:each="recent:${recentList}">
-									<a href="#" th:href="@{detail?(id=${recent.id})}" class="bk">
+									<a href="#" th:href="@{/recent/detail?(id=${recent.id})}" class="bk">
 										<dl class="cf">
 											
 											<dt class="fr" th:text="${#dates.format(recent.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
@@ -405,7 +405,7 @@
 						<div class="ind-7-list f-18" >
 							<ul class="cf pd4">
 								<li th:each="classic:${classicList}">
-									<a href="#" th:href="@{detail?(id=${classic.id})}" class="bk">
+									<a href="#" th:href="@{classic/detail?(id=${classic.id})}" class="bk">
 										<dl class="cf">
 											<dt class="fr" th:text="${#dates.format(classic.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
 											<dd class="oh ellipsis" th:text="${classic.title}">

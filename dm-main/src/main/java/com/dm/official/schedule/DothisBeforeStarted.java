@@ -1,10 +1,7 @@
 package com.dm.official.schedule;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import com.dm.official.persistences.SpringBootJdbc;
 
 
 /**
@@ -19,9 +16,6 @@ import com.dm.official.persistences.SpringBootJdbc;
 @Component
 public class DothisBeforeStarted implements CommandLineRunner {
 
-	@Autowired
-	SpringBootJdbc dao;
-	
 	@Override
 	public void run(String... args) throws Exception {
 		//System.out.println("DothisBeforeStarted");

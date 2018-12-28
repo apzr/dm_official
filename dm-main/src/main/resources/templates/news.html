@@ -23,16 +23,25 @@
 	<script src="/js/respond.src.js"></script>
 	<script src="/js/html5.js"></script>
 	<![endif]-->
-	<script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="../../js/ratio-img.js"></script>
-	<script src="../../js/placeholder.js"></script>
-	<script type="text/javascript" src="../../js/public.js"></script>
-	<script src="../../js/swiper2.js"></script>
-	<script src="../../js/swiper_list.js"></script>
+	<script src="../../js/jquery-1.9.1.min.js" type="text/javascript" ></script>
+	<script src="../../js/ratio-img.js" type="text/javascript" ></script>
+	<script src="../../js/public.js" type="text/javascript" ></script>
 	<script src="../../js/jquery.qrcode.min.js"></script>
-	<script src="../../js/layer.js"></script>
+	<script src="../../js/placeholder.js"></script>
+	<script src="../../js/swiper_list.js"></script>
 	<script src="../../js/template.js"></script>
-	
+	<script src="../../js/swiper2.js"></script>
+	<script src="../../js/layer.js"></script>
+	<script src="../../js/pager.js"></script>
+	<script th:inline="javascript" type="text/javascript" >
+		$(function(){
+			var c = Number([[${currentPageNumber}]]);
+			var t = Number([[${totalElementsNumber}]]);
+			var s = Number([[${pageSize}]]);
+			
+			$('#link').html( initPager(c, t, s) );
+		});
+	</script>
 	<body style="" cz-shortcut-listen="true">
 		
 		<div class="body-box" style="height: auto;">
@@ -42,7 +51,7 @@
 					<div class="nav-box cf">
 						<div class="nav cf f-16">
 							<div class="logo fl">
-								<a href="index">
+								<a href="../../index">
 								<img src="../../images/logo_top.png" alt=""></a>
 							</div>
 							<ul class="cf nav-list">
@@ -51,40 +60,40 @@
 								</li>
 								<li>
 									<div class="cl-effect cl-effect-15">
-										<a href="index" data-hover="首页">首页</a>
+										<a href="../../index" data-hover="首页">首页</a>
 									</div>
 								</li>
 								<li>
 									<div class="cl-effect cl-effect-15">
-										<a href="scope" data-hover="业务范围">业务范围</a>
+										<a href="../../scope" data-hover="业务范围">业务范围</a>
 									</div>
 								</li>
 								<li  class="on">
-										<a href="news" data-hover="新闻公告">新闻公告</a>
+										<a href="../../news" data-hover="新闻公告">新闻公告</a>
 								</li>
 								<li>
 									<div class="cl-effect cl-effect-15">
-										<a href="partner" data-hover="合作伙伴">合作伙伴</a>
+										<a href="../../partner" data-hover="合作伙伴">合作伙伴</a>
 									</div>
 								</li>
 								<li>
 									<div class="cl-effect cl-effect-15">
-										<a href="recent" data-hover="企业动态">企业动态</a>
+										<a href="../../recent" data-hover="企业动态">企业动态</a>
 									</div>
 								</li>
 								<li>
 									<div class="cl-effect cl-effect-15">
-										<a href="classic" data-hover="代表案件">代表案件</a>
+										<a href="../../classic" data-hover="代表案件">代表案件</a>
 									</div>
 								</li>
 								<li>
 									<div class="cl-effect cl-effect-15">
-										<a href="about" data-hover="关于我们">关于我们</a>
+										<a href="../../about" data-hover="关于我们">关于我们</a>
 									</div>
 								</li>
 								<li>
 									<div class="cl-effect cl-effect-15">
-										<a href="contact" data-hover="联系我们">联系我们</a>
+										<a href="../../contact" data-hover="联系我们">联系我们</a>
 									</div>
 								</li>
 							</ul>
@@ -98,14 +107,14 @@
 				<div class="ph-nav-box">
 					<div class="ph-nav">
 						<div class="mobile-inner-nav cl-effect cl-effect-1" style="display: block;">
-							<a href="index" style="animation-delay: 0s;"	data-hover="首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a>
-							<a href="scope" style="animation-delay: 0.1s;" 	data-hover="业务范围">业务范围</a>
-							<a href="news" style="animation-delay: 0.2s;"	data-hover="新闻公告">新闻公告</a>
-							<a href="partner" style="animation-delay: 0.2s;"	data-hover="合作伙伴">合作伙伴</a>
-							<a href="recent" style="animation-delay: 0.3s;"	data-hover="企业动态">企业动态</a>
-							<a href="classic" style="animation-delay: 0.4s;"	data-hover="代表案件">代表案件</a>
-							<a href="about" style="animation-delay: 0.5s;"	data-hover="关于我们">关于我们</a>
-							<a href="contact" style="animation-delay: 0.5s;"	data-hover="联系我们">联系我们</a>
+							<a href="../../index" style="animation-delay: 0s;"	data-hover="首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a>
+							<a href="../../scope" style="animation-delay: 0.1s;" 	data-hover="业务范围">业务范围</a>
+							<a href="../../news" style="animation-delay: 0.2s;"	data-hover="新闻公告">新闻公告</a>
+							<a href="../../partner" style="animation-delay: 0.2s;"	data-hover="合作伙伴">合作伙伴</a>
+							<a href="../../recent" style="animation-delay: 0.3s;"	data-hover="企业动态">企业动态</a>
+							<a href="../../classic" style="animation-delay: 0.4s;"	data-hover="代表案件">代表案件</a>
+							<a href="../../about" style="animation-delay: 0.5s;"	data-hover="关于我们">关于我们</a>
+							<a href="../../contact" style="animation-delay: 0.5s;"	data-hover="联系我们">联系我们</a>
 						</div>
 					</div>
 				</div>
@@ -118,7 +127,7 @@
 					<div class="wrap pt-100">
 						<div class="ind-tit f-28 cf">
 							<p>
-								<span class="bk ellipsis">代表案件</span>
+								<span class="bk ellipsis">新闻公告</span>
 							</p>
 						</div>
 						<div class="or-spacer">
@@ -127,7 +136,7 @@
 						<div class="ind-7-list f-18" >
 							<ul class="cf pd4">
 								<li th:each="news:${newsList}">
-									<a href="#" th:href="@{detail?(id=${news.id})}" class="bk">
+									<a href="#" th:href="@{../detail?(id=${news.id})}" target="_blank" class="bk">
 										<dl class="cf">
 											<dt class="fr" th:text="${#dates.format(news.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
 											<dd class="oh ellipsis" th:text="${news.title}">
@@ -136,7 +145,9 @@
 										</dl>
 									</a>
 								</li>
+								<li><ul id="link" class="pager"></ul></li>
 							</ul>
+							
 						</div>
 					</div>
 				</div>
@@ -147,55 +158,54 @@
 			<footer class="footer f-14">
 				<div class="wrap">
 					<div class="footer-nav cf">
-						<dl class="first">
+						<dl class="left">
+							<dt>
+								<a href="../../scope">业务范围</a>
+							</dt>
+							<dd>
+								<a href="../../scope">商标代理</a>
+							</dd>
+							<dd>
+								<a href="../../scope">专利代理</a>
+							</dd>
+							<dd>
+								<a href="../../scope">版权代理</a>
+							</dd>
+						</dl>
+						<dl class="left">
+							<dt>
+								<a href="../../news">新闻公告</a>
+							</dt>
+						</dl>
+						<dl class="left">
+							<dt>
+								<a href="../../recent">企业动态</a>
+							</dt>
+						</dl>
+						<dl class="left">
+							<dt>
+								<a href="../../classic">代表案件</a>
+							</dt>
+						</dl>
+						<dl class="left">
+							<dt>
+								<a href="../../about">关于我们</a>
+							</dt>
+							<dd>
+								<a href="../../about">企业简介</a>
+							</dd>
+							<dd>
+								<a href="../../about">企业荣誉</a>
+							</dd>
+						</dl>
+						<dl class="left">
+							<dt>
+								<a href="../../contact">联系我们</a>
+							</dt>
+						</dl>
+						<dl class="right">
 							<dt>
 								<img alt="" src="../../images/logo_bottom.jpg" />
-							</dt>
-						</dl>
-						<dl>
-							<dt>
-								<a href="http://127.0.0.1/index">业务范围</a>
-							</dt>
-							<dd>
-								<a href="http://127.0.0.1/index">商标代理</a>
-							</dd>
-							<dd>
-								<a href="http://127.0.0.1/index">专利代理</a>
-							</dd>
-							<dd>
-								<a href="http://127.0.0.1/index">版权代理</a>
-							</dd>
-						</dl>
-						<dl>
-							<dt>
-								<a href="http://127.0.0.1/index">新闻公告</a>
-							</dt>
-						</dl>
-
-						<dl>
-							<dt>
-								<a href="http://127.0.0.1/index">企业动态</a>
-							</dt>
-						</dl>
-						<dl>
-							<dt>
-								<a href="http://127.0.0.1/index">代表案件</a>
-							</dt>
-						</dl>
-						<dl>
-							<dt>
-								<a href="http://127.0.0.1/index">关于我们</a>
-							</dt>
-							<dd>
-								<a href="http://127.0.0.1/index">企业简介</a>
-							</dd>
-							<dd>
-								<a href="http://127.0.0.1/index">企业荣誉</a>
-							</dd>
-						</dl>
-						<dl class="last">
-							<dt>
-								<a href="http://127.0.0.1/index">联系我们</a>
 							</dt>
 						</dl>
 					</div>

@@ -128,7 +128,7 @@
 						<div class="ind-7-list f-18" >
 							<ul class="cf pd4">
 								<li th:each="classic:${classicList}">
-									<a href="#" th:href="@{detail?(id=${classic.id})}" class="bk">
+									<a href="#" th:href="@{/classic/detail?(id=${classic.id})}" class="bk">
 										<dl class="cf">
 											<dt class="fr" th:text="${#dates.format(classic.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
 											<dd class="oh ellipsis" th:text="${classic.title}">

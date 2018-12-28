@@ -9,37 +9,27 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "t_detail")
-public class Detail {
+@Table(name = "t_classic")
+public class Classic {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	private Integer type_id;
-	
 	private String title;
-	
+
 	private String detail;
-	
+
 	private Date release_time;
 
 	private Date create_time;
-	
+
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Integer getType_id() {
-		return type_id;
-	}
-
-	public void setType_id(Integer type_id) {
-		this.type_id = type_id;
 	}
 
 	public String getTitle() {

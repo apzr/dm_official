@@ -128,7 +128,7 @@
 						<div class="f-18" >
 							<ul class="cf pd4">
 								<li th:each="recent:${recentList}">
-									<a href="#" th:href="@{detail?(id=${recent.id})}" class="bk">
+									<a href="#" th:href="@{recent/detail?(id=${recent.id})}" class="bk">
 										<dl class="cf">
 											
 											<dt class="fr" th:text="${#dates.format(recent.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>

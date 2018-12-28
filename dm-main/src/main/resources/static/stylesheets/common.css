@@ -277,7 +277,7 @@ body .bon-orange img { vertical-align:middle; position:relative; top:-2px;}
 
 .uppercase{text-transform:uppercase; }
 
-.ellipsis{ text-overflow:ellipsis; white-space:nowrap; overflow:hidden;  }
+.ellipsis{ text-overflow:ellipsis; /*white-space:nowrap;*/ overflow:hidden;  }
 .ellipsis-2 {  overflow:hidden;  height:3em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
 .ellipsis-3 {  overflow:hidden;  height:3.3em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;}
 .ellipsis-4 {  overflow:hidden;  height:3em; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;}
