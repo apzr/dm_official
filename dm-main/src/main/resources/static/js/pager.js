@@ -1,4 +1,4 @@
-function getPageShowList(currentNumber, pageCount){
+function getPageShowList(currentPage, pageCount){
 	var list = [];
 	var start,end;
 
@@ -6,15 +6,15 @@ function getPageShowList(currentNumber, pageCount){
 		start = 1;
 		end = pageCount;
 	}else{
-		if(currentNumber<3){//左边拿光,右边补上
+		if(currentPage<3){//左边拿光,右边补上
 			start = 1;
-			end = currentNumber+(5-currentNumber);
-		}else if(currentNumber>pageCount-2){//这段不对
+			end = currentPage+(5-currentPage);
+		}else if(currentPage>pageCount-2){//这段不对
 			start = pageCount-4;
 			end = pageCount;
 		}else{
-			start = currentNumber-2;
-			end = currentNumber+2;
+			start = currentPage-2;
+			end = currentPage+2;
 		}
 	}
 	
@@ -25,23 +25,23 @@ function getPageShowList(currentNumber, pageCount){
 	return list;
 }
 
-function initPager(currentNumber, totalNumber, pageSize){
-	var pageCount = Math.ceil(totalNumber/pageSize);
+function initPager(currentPage, elementsCount, pageSize){
+	var pageCount = Math.ceil(elementsCount/pageSize);
 	
 	var html = "";
 	
-	if(pageCount<5 || currentNumber==1){
-		html += "<li style='display:none'><a href='"+(currentNumber-1)+"'><</a></li>";
+	if(pageCount<5 || currentPage==1){
+		html += "<li style='display:none'><a href='"+(currentPage-1)+"'><</a></li>";
 	}else{
-		html += "<li><a href='"+(currentNumber-1)+"'><</a></li>";
+		html += "<li><a href='"+(currentPage-1)+"'><</a></li>";
 	}
 	
 	if(pageCount>5){
-		var pageToShow = getPageShowList(currentNumber, pageCount);
+		var pageToShow = getPageShowList(currentPage, pageCount);
 		for(var i = 1;i<=pageCount;i++){
 			if( $.inArray(i, pageToShow) > -1){
 				var link_Url = "";
-				if( i == currentNumber){
+				if( i == currentPage){
 					link_Url += "<li><a class='active' href='javascript:void(0)'>"+i+"</a></li>"; 
 				}else{
 					link_Url += "<li><a href='"+i+"'>"+i+"</a></li>"; 
@@ -53,7 +53,7 @@ function initPager(currentNumber, totalNumber, pageSize){
 	}else{
 		for(var i = 1;i<=pageCount;i++){
 			var link_Url = "";
-			if( i == currentNumber){
+			if( i == currentPage){
 				link_Url += "<li><a class='active' href='javascript:void(0)'>"+i+"</a></li>"; 
 			}else{
 				link_Url += "<li><a href='"+i+"'>"+i+"</a></li>"; 
@@ -64,10 +64,10 @@ function initPager(currentNumber, totalNumber, pageSize){
 	}
 	
 	
-	if(pageCount<5 || currentNumber==pageCount){
-		html += "<li style='display:none'><a href='"+(currentNumber+1)+"'>></a></li>";
+	if(pageCount<5 || currentPage==pageCount){
+		html += "<li style='display:none'><a href='"+(currentPage+1)+"'>></a></li>";
 	}else{
-		html += "<li><a href='"+(currentNumber+1)+"'>></a></li>";
+		html += "<li><a href='"+(currentPage+1)+"'>></a></li>";
 	}
 	
 	return html;

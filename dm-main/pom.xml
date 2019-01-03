@@ -168,7 +168,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.eversec.pierce.Application</mainClass>
+							<mainClass>com.dm.official.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

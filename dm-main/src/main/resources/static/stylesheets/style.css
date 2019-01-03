@@ -2,6 +2,21 @@
 	margin：0；padding：0: ；
 }
 
+*#baiduMap{
+	z-index: 0;
+	overflow: hidden;
+	position: relative;
+	text-align: left;
+	color: rgb(0, 0, 0);
+	background-color: rgb(243, 241, 236);
+	width: 480px;
+	height: 255px;
+}
+
+.BMap_pop{
+	opacity: 0.9;
+}
+
 .pager {
 	width: 100%;
 	text-align: right;
@@ -808,7 +823,6 @@ a.details-more, .details-more {
 .footer-nav dt {
 	padding: 0 1em;
 	margin-bottom: 1.5em;
-	font-weight: bold;
 }
 
 .footer-nav dd {
@@ -817,6 +831,12 @@ a.details-more, .details-more {
 
 .footer-nav dl.right{
 	float:right;
+}
+
+.footer-nav dl.right dt{
+	padding: 0;
+	margin: 0 auto;
+	box-shadow: #7c7c7c 1px 1px 13px 5px;
 }
 
 .footer-nav dl.left{

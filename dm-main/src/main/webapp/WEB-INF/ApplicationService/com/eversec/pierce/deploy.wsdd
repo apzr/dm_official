@@ -3,15 +3,15 @@
   <!-- Services from ApplicationService WSDL service -->
 
   <service name="Application" provider="java:RPC" style="wrapped" use="literal">
-      <parameter name="wsdlTargetNamespace" value="http://pierce.eversec.com"/>
+      <parameter name="wsdlTargetNamespace" value="http://47.93.242.52"/>
       <parameter name="wsdlServiceElement" value="ApplicationService"/>
-      <parameter name="schemaQualified" value="http://pierce.eversec.com"/>
+      <parameter name="schemaQualified" value="http://47.93.242.52"/>
       <parameter name="wsdlServicePort" value="Application"/>
-      <parameter name="className" value="com.eversec.pierce.Application"/>
+      <parameter name="className" value="com.dm.official.Application"/>
       <parameter name="wsdlPortType" value="Application"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://pierce.eversec.com" name="main" qname="operNS:main" soapAction="">
-        <parameter xmlns:pns="http://pierce.eversec.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:args" type="tns:string"/>
+      <operation xmlns:operNS="http://47.93.242.52" name="main" qname="operNS:main" soapAction="">
+        <parameter xmlns:pns="http://47.93.242.52" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:args" type="tns:string"/>
       </operation>
       <parameter name="allowedMethods" value="main"/>
 

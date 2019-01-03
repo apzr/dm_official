@@ -1064,6 +1064,9 @@ figure.effect-jazz:hover p {
 
 figure.effect-ming {
 	/*background: #777;*/
+	padding: 0;
+    margin: 0 auto;
+    box-shadow: #7c7c7c 1px 1px 13px 5px;
 }
 
 figure.effect-ming img {
