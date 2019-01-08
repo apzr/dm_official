@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dm.official.dto.CONST;
+import com.dm.official.entity.About;
 import com.dm.official.entity.Classic;
 import com.dm.official.entity.News;
 import com.dm.official.entity.Partner;
 import com.dm.official.entity.Recent;
 import com.dm.official.entity.Scope;
+import com.dm.official.service.AboutService;
 import com.dm.official.service.ClassicService;
 import com.dm.official.service.NewsService;
 import com.dm.official.service.PartnerService;
@@ -39,20 +41,22 @@ import io.swagger.annotations.Api;
 public class MainController {
 
 	@Autowired
-	ScopeService scopeService;
+	NewsService newsService;
 	
 	@Autowired
-	NewsService newsService;
+	ScopeService scopeService;
 
 	@Autowired
 	RecentService recentService;
-
-	@Autowired
-	ClassicService classicService;
-
+	
 	@Autowired
 	PartnerService partnerService;
 
+	@Autowired
+	ClassicService classicService;
+	
+	@Autowired
+	AboutService aboutService;
 	
 	/**
 	 * 主页
@@ -322,7 +326,7 @@ public class MainController {
 	/* 经典案件*/
 	@RequestMapping(path = "/classic")
 	public void defaultClassic(HttpServletResponse response) throws IOException {
-		response.sendRedirect("/recent/"+CONST.DEFAULT_PAGE_SIZE+"/1");
+		response.sendRedirect("/classic/"+CONST.DEFAULT_PAGE_SIZE+"/1");
 	}
 	
 	/**
@@ -377,18 +381,53 @@ public class MainController {
 	}
 	
 	/**
-	 * 关于我们
+	  *关于我们
 	 * 
 	 * @param param
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
-	public String about(ModelMap param) {
+	public void defaultAbout(HttpServletResponse response) throws IOException {
+		response.sendRedirect("/about/"+CONST.DEFAULT_PAGE_SIZE+"/1");
+	}
+	
+	/**
+	  * 关于我们
+	 * @param param
+	 * @return
+	 */
+	@RequestMapping(value = "/about/{page_size}/{page_no}", method = RequestMethod.GET)
+	public String about(ModelMap param, @PathVariable("page_size") String pSize, @PathVariable("page_no") String currentPage) {
+
+		int pageNumber;
+		int pageSize;
+		
+		try {
+			pageSize = Integer.parseInt(pSize);
+		} catch (NumberFormatException e) {
+			pageSize = CONST.DEFAULT_PAGE_SIZE;
+		}
+		
+		try {
+			pageNumber = Integer.parseInt(currentPage);
+		} catch (NumberFormatException e) {
+			pageNumber = 1;
+		}
+		
+		Page<About> aboutList = this.aboutService.page(pageNumber, pageSize);
+		
+		param.addAttribute("list", aboutList.getContent());
+		
+		param.addAttribute("elementsCount", aboutList.getTotalElements());
+		param.addAttribute("currentPage", currentPage);
+		param.addAttribute("pageSize", pageSize);
+
 		return "about";
 	}
 
 	/**
-	 * 联系我们
+	  * 联系我们
 	 * 
 	 * @param param
 	 * @return
@@ -397,5 +436,4 @@ public class MainController {
 	public String contact(ModelMap param) {
 		return "contact";
 	}
-
 }

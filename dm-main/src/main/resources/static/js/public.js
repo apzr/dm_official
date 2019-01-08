@@ -84,17 +84,40 @@ $(function() {
  * @returns
  */
 $(function() {
-	$(window).scroll(function() {
-		var scroll_top = $(window).scrollTop();
-		if (scroll_top > 500) {
-			$(".item-top").show();
-		} else {
-			$(".item-top").hide();
-		}
-	});
+//	$(window).scroll(function() {
+//		var scroll_top = $(window).scrollTop();
+//		if (scroll_top > 500) {
+//			$(".item-top").show(10);
+//		} else {
+//			$(".item-top").hide(10);
+//		}
+//	});
 	$(".item-top").on("click", function() {
 		$("body, html").animate({
 			scrollTop : 0
 		}, 500);
 	});
+});
+
+/**
+ * 留言咨询
+ * 
+ * @returns
+ */
+$(function() {
+	//显示弹框
+	$('.item-msg').click(function() {
+		showType = $(this).attr('show-type');
+		$('#dialogBg').fadeIn(300);
+		$('#dialog').attr('show-type', showType);
+		$('#dialog').removeAttr('class').addClass('animated '+showType+'').fadeIn();
+	});
+	
+	//关闭弹窗
+	$('.claseDialogBtn').click(function(){
+		$('#dialogBg').fadeOut(300,function(){
+			$('#dialog').addClass(	$('#dialog').attr('show-type')	).fadeOut();
+		});
+	});
+
 });

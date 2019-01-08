@@ -41,6 +41,9 @@ a:hover { color:#00afff;}
 	font-size:1.2em;
 }
 
+.pd35{ padding:35px 0; }
+.pd55{ padding:55px 0; }
+.pd75{ padding:75px 0; }
 .edit_con_original{ line-height:1.8; font-size:1.4rem; *font-size: 14px; padding:0 0; color:#333; text-align:justify;}
 .edit_con_original ul{ margin:initial; padding:initial; padding-left:1.5em;}
 .edit_con_original ul li { list-style-type:disc; margin:auto; padding:initial}

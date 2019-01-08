@@ -40,6 +40,15 @@
 	<script src="../../js/pager.js"></script>
 	<script src="http://api.map.baidu.com/api?v=3.0&ak=KLQyMxZa4mK4TbdOGORG0aWpAyKcc7qC" type="text/javascript" ></script>
 	
+	<script th:inline="javascript" type="text/javascript" >
+		$(function(){
+			var c = Number([[${currentPage}]]);
+			var e = Number([[${elementsCount}]]);
+			var s = Number([[${pageSize}]]);
+			
+			$('#link').html( initPager(c, e, s) );
+		});
+	</script>
 	<body style="" cz-shortcut-listen="true">
 		
 		<div class="body-box" style="height: auto;">
@@ -132,12 +141,11 @@
 						<div class="or-spacer">
 						    <div class="mask"></div>
 						</div>
-						<div class="f-18" >
+						<div class="ind-7-list f-18" >
 							<ul class="cf pd4">
-								<li th:each="recent:${recentList}">
-									<a href="#" th:href="@{recent/detail?(id=${recent.id})}" class="bk">
+								<li th:each="recent:${list}">
+									<a href="#" th:href="@{../detail?(id=${recent.id})}" target="_blank" class="bk">
 										<dl class="cf">
-											
 											<dt class="fr" th:text="${#dates.format(recent.release_time, 'yyyy-MM-dd HH:mm')}">0000-00-00</dt>
 											<dd class="oh ellipsis" th:text="${recent.title}">
 												企业动态
@@ -145,6 +153,7 @@
 										</dl>
 									</a>
 								</li>
+								<li><ul id="link" class="pager"></ul></li>
 							</ul>
 						</div>
 					</div>
@@ -214,12 +223,12 @@
 						Copyright © 2018-2019 钉铆知识产权代理服务有限公司 
 						<br />
 						<br />
-						<a href="https://szcert.ebs.org.cn/5a204ab8-076c-44ad-97e0-775de4e5a278" target="_blank" style="color: #666">
+						<a href="https://szcert.ebs.org.cn/" target="_blank" style="color: #666">
 							<img src="../../images/icon_gswj.gif" style="width:20px;height: 25px;" />
 							豫ICP备********号
 						</a>
 						<br/>
-						<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802023805" target="_blank" style="color: #666">
+						<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" target="_blank" style="color: #666">
 							<img src="../../images/icon_icp.png">
 							豫公网安备**************号
 						</a>

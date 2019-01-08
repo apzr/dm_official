@@ -1069,6 +1069,13 @@ figure.effect-ming {
     box-shadow: #7c7c7c 1px 1px 13px 5px;
 }
 
+figure.light-shadow {
+	background: #FFF;
+	padding: 0;
+    margin: 0 auto;
+    box-shadow: #7c7c7c 1px 1px 5px 1px;
+}
+
 figure.effect-ming img {
 	opacity: 0.9;
 	-webkit-transition: opacity 0.35s;
@@ -1082,6 +1089,22 @@ figure.effect-ming figcaption::before {
 	bottom: 30px;
 	left: 30px;
 	border: 1px solid #ccc;
+	/*box-shadow: 0 0 0 30px rgba(255,255,255,0.2);*/
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale3d(1.4,1.4,1);
+	transform: scale3d(1.4,1.4,1);
+}
+
+figure.effect-ming figcaption.nb::before {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	bottom: 30px;
+	left: 30px;
+	border: 0;
 	/*box-shadow: 0 0 0 30px rgba(255,255,255,0.2);*/
 	content: '';
 	opacity: 0;
