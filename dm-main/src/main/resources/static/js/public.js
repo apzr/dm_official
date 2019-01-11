@@ -84,15 +84,15 @@ $(function() {
  * @returns
  */
 $(function() {
-//	$(window).scroll(function() {
-//		var scroll_top = $(window).scrollTop();
-//		if (scroll_top > 500) {
-//			$(".item-top").show(10);
-//		} else {
-//			$(".item-top").hide(10);
-//		}
-//	});
-	$(".item-top").on("click", function() {
+	$(window).scroll(function() {
+		var scroll_top = $(window).scrollTop();
+		if (scroll_top > 500) {
+			$(".tools-top").fadeIn(100);
+		} else {
+			$(".tools-top").fadeOut(100);
+		}
+	});
+	$(".tools-top").on("click", function() {
 		$("body, html").animate({
 			scrollTop : 0
 		}, 500);
@@ -108,16 +108,78 @@ $(function() {
 	//显示弹框
 	$('.item-msg').click(function() {
 		showType = $(this).attr('show-type');
-		$('#dialogBg').fadeIn(300);
+		$('#dialogBg').fadeIn(200);
 		$('#dialog').attr('show-type', showType);
 		$('#dialog').removeAttr('class').addClass('animated '+showType+'').fadeIn();
 	});
 	
 	//关闭弹窗
-	$('.claseDialogBtn').click(function(){
-		$('#dialogBg').fadeOut(300,function(){
-			$('#dialog').addClass(	$('#dialog').attr('show-type')	).fadeOut();
+	$('.closeDialogButton').click(function(){
+		$('#dialogBg').fadeOut(100,function(){
+			$('#dialog').addClass(	$('#dialog').attr('show-type')	).fadeOut(100);
 		});
 	});
-
+	
+	//提交留言
+	$('.submitFormButton').click(function(){
+		
+		$.ajax({
+			
+			dataType 	: "json",
+			contentType :　"application/json",
+			type 	: 	"POST",
+			url 	: 	"../../counsel",
+			data	:	JSON.stringify({ 
+							name	: $('#msgForm #name').val(),
+							tel		: $('#msgForm #tel').val(),
+							mail	: $('#msgForm #mail').val(),
+							detail	: $('#msgForm #detail').val()
+						}),
+			
+			success : function(data) {
+				console.log(data);
+			}
+		
+		});
+		
+		$('#dialogBg').fadeOut(100,function(){
+			$('#dialog').addClass(	$('#dialog').attr('show-type')	).fadeOut(100);
+		});
+		
+	});
+	
 });
+
+/**
+ * 百度地图
+ * 
+ * @returns
+ */
+$(function(){
+	
+	var map = new BMap.Map("baiduMap"); // 创建Map实例
+	var point = new BMap.Point(113.906429, 35.275876);
+	map.centerAndZoom(point, 14);
+
+	map.setCurrentCity("河南"); // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+
+	var marker = new BMap.Marker(point); // 创建标注
+	map.addOverlay(marker); // 将标注添加到地图中
+
+	var sContent = "<p style='font-size: 10px;'>河南省 新乡市 红旗区 <br/>20号街坊开祥天下城 3号楼1单元0101</p>";
+	var opts = {
+		width : 280, // 信息窗口宽度
+		height : 55, // 信息窗口高度
+		title : "<FONT color='#3CC2FF'>新乡市开发区钉铆知识产权代理服务有限公司</FONT>", // 信息窗口标题
+		enableMessage : false,// 设置允许信息窗发送短息
+		message : ""
+	}
+	var infoWindow = new BMap.InfoWindow(sContent, opts); // 创建信息窗口对象
+	map.openInfoWindow(infoWindow, point); // 开启信息窗口
+
+	marker.addEventListener("click", function() {
+		map.openInfoWindow(infoWindow, point); // 开启信息窗口
+	});
+	
+})

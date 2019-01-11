@@ -2,6 +2,7 @@
 package com.dm.official.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -9,25 +10,33 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dm.official.dto.CONST;
 import com.dm.official.entity.About;
 import com.dm.official.entity.Classic;
+import com.dm.official.entity.Counsel;
 import com.dm.official.entity.News;
 import com.dm.official.entity.Partner;
 import com.dm.official.entity.Recent;
 import com.dm.official.entity.Scope;
 import com.dm.official.service.AboutService;
 import com.dm.official.service.ClassicService;
+import com.dm.official.service.CounselService;
+import com.dm.official.service.MailService;
 import com.dm.official.service.NewsService;
 import com.dm.official.service.PartnerService;
 import com.dm.official.service.RecentService;
 import com.dm.official.service.ScopeService;
+import com.dm.official.util.DateUtils;
 
 import io.swagger.annotations.Api;
 
@@ -58,6 +67,12 @@ public class MainController {
 	@Autowired
 	AboutService aboutService;
 	
+	@Autowired
+	CounselService counelService;
+	
+	@Autowired
+	MailService mailService;
+
 	/**
 	 * 主页
 	 * 
@@ -77,6 +92,17 @@ public class MainController {
 		param.addAttribute("classicList", classicList);
 
 		return "index";
+	}
+
+	/**
+	 * 主页
+	 * 
+	 * @param param
+	 * @return
+	 */
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home(ModelMap param) {
+		return "home";
 	}
 
 	/**
@@ -435,5 +461,56 @@ public class MainController {
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	public String contact(ModelMap param) {
 		return "contact";
+	}
+	
+	/**
+	 * 留言建议
+	 */
+	/**
+	  * 联系我们
+	 * 
+	 * @param param
+	 * @return
+	 */
+	@RequestMapping(value = "/counsel", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+	@ResponseBody
+	@Transactional(rollbackFor = { Exception.class })
+	public Counsel counsel(@RequestBody Counsel counsel) {
+		try {
+			//1存数据库
+			Counsel c = counelService.save(counsel);
+			
+			//2发邮件
+			String title = "网站咨询 ["+DateUtils.getDate("yyyy-MM-dd HH:mm:ss")+"]";
+			
+			StringBuffer content = new StringBuffer();
+			content.append("姓名："+c.getName());
+			content.append(System.getProperty("line.separator"));
+			content.append("手机："+c.getTel());
+			content.append(System.getProperty("line.separator"));
+			content.append("邮箱："+c.getMail());
+			content.append(System.getProperty("line.separator"));
+			content.append("时间："+DateUtils.formatDate(c.getCreate_time(), "yyyy-MM-dd HH:mm:ss"));
+			content.append(System.getProperty("line.separator"));
+			content.append("内容："+c.getDetail());
+			
+			String from = "service@dmaoipr.com";
+			String to = "zhangsk@dmaoipr.com";
+			
+			
+			SimpleMailMessage mail = new SimpleMailMessage();
+			mail.setTo(to);
+			mail.setFrom(from);
+			mail.setSubject(title);
+			mail.setText(content.toString());
+			mailService.send(mail);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//3返回状态值
+		return null;
 	}
 }

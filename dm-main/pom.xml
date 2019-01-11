@@ -34,6 +34,12 @@
 			<artifactId>nekohtml</artifactId>
 		</dependency>
 
+		<!-- 邮件 -->
+		<dependency>  
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		
 		<!-- web相关的pom插件 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

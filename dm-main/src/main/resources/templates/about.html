@@ -139,28 +139,24 @@
 											<li th:each="about:${list}">
 												<div class="box2">
 													<div class="d2">
-														<p th:text="${about.name}">姓名</p>
+														<p th:text="${about.name}">...</p>
 													</div>
 											 		<div class="d3">
-											 			<p th:text="${about.tel}">
-											 				<i class="tel"></i>
-											 				000-0000000
-											 			</p>
-											 			<p th:text="${about.fax}">
-															<i class="fax"></i>
-											 				000-0000000
-														</p>
-											 			<p th:text="${about.mail}">
-											 				<i class="mail"></i>
-											 				000-0000000
-														</p>
+											 			<div>
+											 				<i class="icon w10p icon-mobile  fl" >&nbsp</i>
+										 					<span th:text="${about.tel}">...</span>
+											 			</div>
+											 			<div>
+											 				<i class="icon w10p icon-fax fl" >&nbsp</i>
+										 					<span  th:text="${about.fax}">...</span>
+											 			</div>
+											 			<div>
+											 				<i class="icon w10p icon-email fl" >&nbsp</i>
+										 					<span  th:text="${about.mail}">...</span>
+											 			</div>
 													</div>
 											 		<div class="d1">
-											 			<p th:text="${about.detail}">
-												 			简介
-												 		</p> 
-														<br />
-														<a href="http://www.dmaoipr.com/">钉铆 </a>
+											 			<p th:text="${about.detail}">......</p> 
 													</div>
 												</div>
 											</li>
@@ -205,7 +201,7 @@
 				
 			</section>
 			<hr class="split"/>
-			<footer class="footer f-14">
+			<footer class="footer f-16">
 				<div class="wrap">
 					<div class="footer-nav cf">
 						<dl class="left">
@@ -263,17 +259,14 @@
 				<hr class="split"/>
 				<div class="footer-cr f-12 c666">
 					<div class="wrap">
-						<br/>
-						Copyright © 2018-2019 钉铆知识产权代理服务有限公司 
-						<br />
+						Copyright © 2018-2019 新乡市开发区钉铆知识产权代理服务有限公司 
 						<br />
 						<a href="https://szcert.ebs.org.cn/" target="_blank" style="color: #666">
-							<img src="../../images/icon_gswj.gif" style="width:20px;height: 25px;" />
+							<img src="../../images/ico_gswj.gif" style="width:20px;height: 25px;" />
 							豫ICP备********号
 						</a>
-						<br/>
 						<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" target="_blank" style="color: #666">
-							<img src="../../images/icon_icp.png">
+							<img src="../../images/ico_icp.png">
 							豫公网安备**************号
 						</a>
 						<br/>
@@ -281,11 +274,64 @@
 				</div>
 			</footer>
 
-			<div>
-				<a class="item-top">∧</a>
+						
+			<div class="tools">
+				<ul class="tools-ul">
+					<li class="tools-msg">
+					  	<a class="item-msg" show-type="zoomIn">
+					  		<img border="0" src="../../images/icon_msg_white.png" alt="留言咨询" title="留言咨询"/>
+					  	</a>
+						<div class="tools-tips tools-tips-always">留言</div>
+					</li>
+					<li class="tools-chat">
+						<a class="item-chat" href="http://wpa.qq.com/msgrd?v=3&uin=582481323&site=qq&menu=yes" target="_blank">
+							<img border="0" src="../../images/icon_chat_white.png" alt="在线咨询" title="在线咨询"/>
+						</a>
+						<div class="tools-tips tools-tips-always">咨询</div>
+					</li>
+					<li class="tools-top">
+						<a class="item-top" >
+							<img border="0" src="../../images/icon_top_white.png" alt="回到顶部" title="回到顶部"/>
+						</a>
+						<div class="tools-tips tools-tips-always">返回</div>
+					</li>
+				</ul>
 			</div>
+			
+			<div class="box">
+				<div id="dialogBg"></div>
+				<form action="../../counsel" method="post" id="msgForm">
+					<div id="dialog" class="animated">
+						<div class="ind-8-list">
+							<ul>
+								<li>
+									<div class="box2">
+										<div class="d2">
+											<p>留言咨询</p>
+										</div>
+								 		<div class="d3">
+								 			<p><i class="icon w40x icon-profile" >&nbsp</i><input id="name" placeholder="姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名"></input></p>
+								 			<p><i class="icon w40x icon-mobile" >&nbsp</i><input id="tel" placeholder="联系电话"></input></p>
+								 			<p><i class="icon w40x icon-email" >&nbsp</i><input id="mail" placeholder="电子邮箱"></input></p>
+										</div>
+								 		<div class="d1">
+								 			<p><textarea placeholder="请详细输入您想要咨询的问题" id="detail"></textarea></p> 
+										</div>
+									</div>
+								</li>
+								
+								
+							</ul>
+						</div>
+						<div class="dialogTop">
+							<a href="javascript:void(0);" class="button submitFormButton">提交</a>
+							<a href="javascript:void(0);" class="button closeDialogButton">取消</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			
 		</div>
 	</body>
 
-	<script src="../../js/sbmap.js"></script>
 </html>

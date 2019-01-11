@@ -1,4 +1,5 @@
 package com.dm.official.filter;
+
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -7,11 +8,20 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component("myFilter")
 public class MyFilter implements Filter {
+	/**
+	 * 日志对象
+	 */
+	protected Logger LOGGER = LoggerFactory.getLogger(getClass());
+
 	/**
 	 * 
 	 * @see javax.servlet.Filter#destroy()
@@ -31,10 +41,35 @@ public class MyFilter implements Filter {
 	 *      javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
 	@Override
-	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("doFilter...");
-		arg2.doFilter(arg0, arg1);
+		LOGGER.debug("*******************************doFilter**************************************************************doFilter*******************************");
+		System.out.println("*******************************doFilter*******************************");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		// 跨域设置
+		if (response instanceof HttpServletResponse) {
+			HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+			// 通过在响应 header 中设置 ‘*’ 来允许来自所有域的跨域请求访问。
+			httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
+			// 通过对 Credentials 参数的设置，就可以保持跨域 Ajax 时的 Cookie
+			// 设置了Allow-Credentials，Allow-Origin就不能为*,需要指明具体的url域
+			// httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
+			// 请求方式
+			httpServletResponse.setHeader("Access-Control-Allow-Methods", "*");
+			// （预检请求）的返回结果（即 Access-Control-Allow-Methods 和Access-Control-Allow-Headers
+			// 提供的信息） 可以被缓存多久
+			httpServletResponse.setHeader("Access-Control-Max-Age", "86400");
+			// 首部字段用于预检请求的响应。其指明了实际请求中允许携带的首部字段
+			httpServletResponse.setHeader("Access-Control-Allow-Headers", "*");
+		}
+		// sql,xss过滤
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		XssHttpServletRequestWrapper xssHttpServletRequestWrapper = new XssHttpServletRequestWrapper(
+				httpServletRequest);
+		chain.doFilter(xssHttpServletRequestWrapper, response);
+		LOGGER.info("CrosXssFilter..........doFilter url:{},ParameterMap:{}",
+				xssHttpServletRequestWrapper.getRequestURI(), xssHttpServletRequestWrapper.getParameterMap());
 	}
 
 	/**

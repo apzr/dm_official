@@ -34,13 +34,9 @@ a:hover { color:#00afff;}
 
 .song { font-family:"\5b8b\4f53";  }
 
-.title15{
-	font-size:1.5em;
-}
-.title13{
-	font-size:1.2em;
-}
-
+.title15{font-size:1.5em;}
+.title13{font-size:1.2em;}
+.w100{width:100%;}
 .pd35{ padding:35px 0; }
 .pd55{ padding:55px 0; }
 .pd75{ padding:75px 0; }
