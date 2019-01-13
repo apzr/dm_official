@@ -27,7 +27,7 @@
 
 .img .effect-julia figcaption {
 	padding: 2em;
-	color: #fff;
+	color: #000;
 	text-transform: uppercase;
 	font-size: 1.25em;
 	-webkit-backface-visibility: hidden;
@@ -93,9 +93,10 @@
 /*---------------*/
 
 figure.effect-julia {
-	background: #2f3238;
-	width:100%;
-	margin: 0 auto;
+    background: #bbb;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: #7c7c7c 1px 1px 10px 1px;
 }
 
 figure.effect-julia img {

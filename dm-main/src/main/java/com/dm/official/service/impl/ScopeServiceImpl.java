@@ -19,31 +19,17 @@ public class ScopeServiceImpl extends BaseService implements ScopeService {
 	ScopeRepository repository;
 
 	@Override
-	public Scope getDetail(Integer id) {
-		return repository.getScope(id);
+	public List<Scope> getScope() {
+		return repository.getScope();
 	}
 
+	@Override
+	public Scope getScopeList(Integer id) {
+		return repository.getScopeList(id);
+	}
+	
 	@Override
 	public List<Scope> top(int limit) {
 		return repository.top(limit);
 	}
-	
-	@Override
-	public Page<Scope> page(int pageNumber, int pageSize) {
-		PageRequest request = this.buildPageRequest(pageNumber, pageSize);
-		Page<Scope> scopes = repository.findAll(request);
-		return scopes;
-	}
-
-	/**
-	 * 构建PageRequest
-	 * 
-	 * @param pageNumber
-	 * @param pagzSize
-	 * @return
-	 */
-	private PageRequest buildPageRequest(int pageNumber, int pagzSize) {
-		return new PageRequest(pageNumber - 1, pagzSize, null);
-	}
-
 }

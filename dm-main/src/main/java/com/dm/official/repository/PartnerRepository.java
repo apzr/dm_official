@@ -17,13 +17,13 @@ import com.dm.official.entity.Partner;
  */
 public interface PartnerRepository extends PagingAndSortingRepository<Partner, Integer> {
 
-	@Query(value = "SELECT id,title,detail,release_time,create_time "
+	@Query(value = "SELECT id,title,detail,imgsrc,create_time "
 			+ " FROM t_partner c "
 			+ " WHERE id = :id", nativeQuery = true)
 	public Partner getPartner(@Param("id") Integer id);
 
 	
-	@Query(value = "SELECT id,title,detail,release_time,create_time "
+	@Query(value = "SELECT id,title,detail,imgsrc,create_time "
 			+ " FROM t_partner c "
 			+ " ORDER BY create_time LIMIT :limit ", nativeQuery = true)
 	public List<Partner> top(@Param("limit") Integer limit);

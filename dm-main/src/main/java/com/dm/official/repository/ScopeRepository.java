@@ -17,15 +17,18 @@ import com.dm.official.entity.Scope;
  */
 public interface ScopeRepository extends PagingAndSortingRepository<Scope, Integer> {
 
-	@Query(value = "SELECT id,title,detail,release_time,create_time "
-			+ " FROM t_scope c "
-			+ " WHERE id = :id", nativeQuery = true)
-	public Scope getScope(@Param("id") Integer id);
+	@Query(value = "SELECT id,type as type_id,title as type_name, 0 as sort, title, detail "
+			+ " FROM t_scope c ", nativeQuery = true)
+	public List<Scope> getScope();
 
-	
-	@Query(value = "SELECT id,title,detail,release_time,create_time "
-			+ " FROM t_scope c "
-			+ " ORDER BY create_time LIMIT :limit ", nativeQuery = true)
+	@Query(value = "SELECT id,type_id,type_name,sort,title,detail "
+			+ " FROM t_scope_list c "
+			+ " WHERE id = :id", nativeQuery = true)
+	public Scope getScopeList(@Param("id") Integer id);
+
+	@Query(value = "SELECT id,type_id,type_name,sort,title,detail "
+			+ " FROM t_scope_list c "
+			+ " LIMIT :limit ", nativeQuery = true)
 	public List<Scope> top(@Param("limit") Integer limit);
 	
 }

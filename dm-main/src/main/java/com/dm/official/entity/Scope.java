@@ -9,20 +9,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "t_scope")
+@Table(name = "t_scope_list")
 public class Scope {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
+	private Integer type_id;
+
+	private String type_name;
+
+	private Integer sort;
+
 	private String title;
-
+	
 	private String detail;
-
-	private Date release_time;
-
-	private Date create_time;
 
 	public Integer getId() {
 		return id;
@@ -30,6 +32,30 @@ public class Scope {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getType_id() {
+		return type_id;
+	}
+
+	public void setType_id(Integer type_id) {
+		this.type_id = type_id;
+	}
+
+	public String getType_name() {
+		return type_name;
+	}
+
+	public void setType_name(String type_name) {
+		this.type_name = type_name;
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
 	}
 
 	public String getTitle() {
@@ -47,21 +73,5 @@ public class Scope {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-
-	public Date getRelease_time() {
-		return release_time;
-	}
-
-	public void setRelease_time(Date release_time) {
-		this.release_time = release_time;
-	}
-
-	public Date getCreate_time() {
-		return create_time;
-	}
-
-	public void setCreate_time(Date create_time) {
-		this.create_time = create_time;
-	}
-
+	
 }

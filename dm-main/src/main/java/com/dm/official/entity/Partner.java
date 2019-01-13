@@ -20,7 +20,7 @@ public class Partner {
 
 	private String detail;
 
-	private Date release_time;
+	private String imgsrc;
 
 	private Date create_time;
 
@@ -48,12 +48,12 @@ public class Partner {
 		this.detail = detail;
 	}
 
-	public Date getRelease_time() {
-		return release_time;
+	public String getImgsrc() {
+		return imgsrc;
 	}
 
-	public void setRelease_time(Date release_time) {
-		this.release_time = release_time;
+	public void setImgsrc(String imgsrc) {
+		this.imgsrc = imgsrc;
 	}
 
 	public Date getCreate_time() {
