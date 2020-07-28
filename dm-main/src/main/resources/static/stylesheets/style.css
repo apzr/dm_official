@@ -2087,7 +2087,7 @@ hr.split {
 }
 
 .nav-list li+li {
-	margin: 25px 0 0 42px;
+	margin: 25px 0 0 25px;
 }
 
 .nav-list li.on a {
@@ -2824,6 +2824,37 @@ a.details-more, .details-more {
 .ind-8-list a:hover {
 	text-decoration: underline;
 	color: #6B6B6B !important;
+}
+
+.footer-bak {
+	
+}
+
+.footer-bak div {
+	width:300px;
+	margin:0 auto; 
+	padding:20px 0;
+}
+
+.footer-bak a {
+	display:inline-block;
+	text-decoration:none;
+	height:20px;
+	line-height:20px;
+	color: #939393;
+}
+
+.footer-bak img {
+	float:left;
+	width: 20px;
+    height: 20px;
+}
+
+.footer-bak p {
+	float:left;
+	height:20px;
+	line-height:20px;
+	margin: 0px 0px 0px 5px;
 }
 
 .footer {
